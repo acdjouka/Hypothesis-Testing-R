@@ -1,0 +1,19 @@
+---
+title: "AC Djouka HW1-3"
+author: "AC Djouka"
+date: "June 8, 2016"
+output: word_document
+---
+
+``` {r}
+USArrests_Coasts <- read.csv("C:/Users/clementine.djouka/Downloads/USArrests_Coasts.csv")
+boxplot(USArrests_Coasts$Rape~USArrests_Coasts$East.Coast)
+boxplot(USArrests_Coasts$Murder~USArrests_Coasts$East.Coast)
+boxplot(USArrests_Coasts$Assault~USArrests_Coasts$East.Coast)
+# H0: The level of violent crimes on the East Coast is lower than or equal to the level of violent crimes in all other states
+# Ha: The level of violent crimes on the East Coast is greater than the level of violent crimes in all other states
+t.test(USArrests_Coasts$Rape~USArrests_Coasts$East.Coast, alternative = "greater")
+t.test(USArrests_Coasts$Murder~USArrests_Coasts$East.Coast, alternative = "greater")
+t.test(USArrests_Coasts$Assault~USArrests_Coasts$East.Coast, alternative = "greater")
+# Conclusion: Using an alpha = 0.05, we cannot reject H0 for assault and murder, but we can reject h0 for rape.
+```
